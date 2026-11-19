@@ -1,0 +1,44 @@
+# Settings for the sprint dashboard. Change these, not the code.
+
+# The CSV the dashboard reads. Replace this file with a new export at any time:
+# the dashboard notices the change and reloads.
+csv_path: data/sprint_tasks.csv
+
+# Your column names → the names the dashboard uses. Only the left side changes.
+# Columns marked (required) must exist; the others switch on extra charts when present.
+columns:
+  issue_key: issue_key            # (required) e.g. APP-1042
+  summary: summary
+  issue_type: issue_type          # (required) Story, Bug, Task, Change Request, Spike...
+  status: status                  # (required) Done, In Progress, To Do...
+  priority: priority
+  sprint: sprint_name             # (required)
+  sprint_start: sprint_start      # (required) sprint start date
+  sprint_end: sprint_end          # (required) sprint end date
+  resource: resource_name         # who did the work
+  team: resource_team             # (required) UX/UI, iOS, Android, React, HTML, Services
+  request_source: request_source  # who asked: Roadmap, Sales, Change Request, Production Support
+  story_points: story_points
+  created: created
+  started: started                # work started (for cycle time)
+  resolved: resolved              # (for lead time)
+  epic: epic
+  carried_over: carried_over      # Yes if the task was moved in from an earlier sprint
+  added_mid_sprint: added_mid_sprint  # Yes if added after the sprint started
+
+# Statuses that count as finished
+done_statuses: [Done, Closed, Resolved, Released]
+
+# People per team, for "per person" figures. Teams not listed use the number of
+# distinct people found in the data.
+team_headcount:
+  UX/UI: 15
+  iOS: 10
+  Android: 10
+  React: 4
+  HTML: 2
+  Services: 6
+
+# Display order for teams and request sources
+team_order: [UX/UI, iOS, Android, React, HTML, Services]
+request_source_order: [Roadmap, Sales, Change Request, Production Support]
